@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ipFilter/components/ipFilterTestPanel render/testResults shows no result message for valid ip address input on verify button click when none of the filter filterRules are affected 1`] = `
+<StyledPanelBase
+  className="iot-panel"
+  isOpen={true}
+  onDismiss={[MockFunction]}
+  type={3}
+>
+  <div>
+    <p
+      className="ipFilter-testPanel-description"
+    />
+    <p
+      className="ipFilter-testPanel-ipAddress-textField-label"
+    />
+    <StyledTextFieldBase
+      className="ipFilter-testPanel-ipAddress-textField"
+      errorMessage=""
+      onChanged={[Function]}
+      value="123.123.123.1"
+    />
+    <div
+      className="ipFilter-testPanel-buttons"
+    >
+      <CustomizedPrimaryButton
+        className="ipFilter-testPanel-verify-button"
+        disabled={false}
+        onClick={[Function]}
+      />
+    </div>
+    <div
+      className="ipFilter-testPanel-results"
+    >
+      <p>
+        No Result Found
+      </p>
+    </div>
+  </div>
+</StyledPanelBase>
+`;
+
+exports[`ipFilter/components/ipFilterTestPanel render/testResults shows results for valid ip address input on verify button click when given ip address is allowed by any of the filter rules 1`] = `
+<StyledPanelBase
+  className="iot-panel"
+  isOpen={true}
+  onDismiss={[MockFunction]}
+  type={3}
+>
+  <div>
+    <p
+      className="ipFilter-testPanel-description"
+    />
+    <p
+      className="ipFilter-testPanel-ipAddress-textField-label"
+    />
+    <StyledTextFieldBase
+      className="ipFilter-testPanel-ipAddress-textField"
+      errorMessage=""
+      onChanged={[Function]}
+      value="127.127.123.6"
+    />
+    <div
+      className="ipFilter-testPanel-buttons"
+    >
+      <CustomizedPrimaryButton
+        className="ipFilter-testPanel-verify-button"
+        disabled={false}
+        onClick={[Function]}
+      />
+    </div>
+    <div
+      className="ipFilter-testPanel-results"
+    >
+      <p
+        className="ipFilter-testPanel-results-match-found-message"
+      >
+        <span>
+          This IP address is
+        </span>
+        <span
+          className="ipFilter-testPanel-results-action-name"
+        >
+           allowed 
+        </span>
+        <span>
+          by the following filter:
+        </span>
+      </p>
+      <p>
+        <span
+          className="ipFilter-testPanel-results-icon"
+        >
+          <StyledIconBase
+            className="ipFilter-testPanel-results-allow-icon"
+            iconName="SkypeCircleCheck"
+          />
+        </span>
+        <span
+          className="ipFilter-testPanel-results-filter-name"
+        >
+          filter_one
+        </span>
+        <span
+          className="ipFilter-testPanel-results-ipMask"
+        >
+          (127.127.123.1/28)
+        </span>
+      </p>
+    </div>
+  </div>
+</StyledPanelBase>
+`;
+
+exports[`ipFilter/components/ipFilterTestPanel render/testResults shows results for valid ip address input on verify button click when given ip address is blocked by any of the filter rules 1`] = `
+<StyledPanelBase
+  className="iot-panel"
+  isOpen={true}
+  onDismiss={[MockFunction]}
+  type={3}
+>
+  <div>
+    <p
+      className="ipFilter-testPanel-description"
+    />
+    <p
+      className="ipFilter-testPanel-ipAddress-textField-label"
+    />
+    <StyledTextFieldBase
+      className="ipFilter-testPanel-ipAddress-textField"
+      errorMessage=""
+      onChanged={[Function]}
+      value="127.127.123.6"
+    />
+    <div
+      className="ipFilter-testPanel-buttons"
+    >
+      <CustomizedPrimaryButton
+        className="ipFilter-testPanel-verify-button"
+        disabled={false}
+        onClick={[Function]}
+      />
+    </div>
+    <div
+      className="ipFilter-testPanel-results"
+    >
+      <p
+        className="ipFilter-testPanel-results-match-found-message"
+      >
+        <span>
+          This IP address is
+        </span>
+        <span
+          className="ipFilter-testPanel-results-action-name"
+        >
+           blocked 
+        </span>
+        <span>
+          by the following filter:
+        </span>
+      </p>
+      <p>
+        <span
+          className="ipFilter-testPanel-results-icon"
+        >
+          <StyledIconBase
+            className="ipFilter-testPanel-results-block-icon"
+            iconName="BlockedSolid"
+          />
+        </span>
+        <span
+          className="ipFilter-testPanel-results-filter-name"
+        >
+          filter_two
+        </span>
+        <span
+          className="ipFilter-testPanel-results-ipMask"
+        >
+          (127.127.123.2/20)
+        </span>
+      </p>
+    </div>
+  </div>
+</StyledPanelBase>
+`;
+
+exports[`ipFilter/components/ipFilterTestPanel snapshot matches snapshot 1`] = `
+<StyledPanelBase
+  className="iot-panel"
+  isOpen={true}
+  onDismiss={[MockFunction]}
+  type={3}
+>
+  <div>
+    <p
+      className="ipFilter-testPanel-description"
+    />
+    <p
+      className="ipFilter-testPanel-ipAddress-textField-label"
+    />
+    <StyledTextFieldBase
+      className="ipFilter-testPanel-ipAddress-textField"
+      errorMessage=""
+      onChanged={[Function]}
+      value=""
+    />
+    <div
+      className="ipFilter-testPanel-buttons"
+    >
+      <CustomizedPrimaryButton
+        className="ipFilter-testPanel-verify-button"
+        disabled={true}
+        onClick={[Function]}
+      />
+    </div>
+    <div
+      className="ipFilter-testPanel-results"
+    />
+  </div>
+</StyledPanelBase>
+`;

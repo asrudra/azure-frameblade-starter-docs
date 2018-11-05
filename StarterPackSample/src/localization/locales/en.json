@@ -1,0 +1,90 @@
+{
+  "ipFilter": {
+    "action": {
+      "title": "ACTION",
+      "toggle": {
+        "accept": "Allow",
+        "reject": "Block"
+      }
+    },
+    "addRuleButton": {
+      "helperText": "Add an IP filter",
+      "text": "Add IP Filter Rule"
+    },
+    "commandBar": {
+      "ariaLabel": "Use left and right arrow keys to navigate between commands"
+    },
+    "filterName": {
+      "placeHolder": "IP Filter rule name",
+      "title": "NAME",
+      "validation": {
+        "isBlank": "IP Filter name cannot be blank.",
+        "isDuplicate": "IP Filter name must be unique.",
+        "exceedsAllowedLength": "IP Filter name cannot exceed 128 characters.",
+        "hasInvalidCharacters": "IP Filter name contains invalid characters."
+      }
+    },
+    "ipMask": {
+      "placeHolder": "Address range",
+      "title": "ADDRESS RANGE",
+      "validation": {
+        "isBlank": "IP address range cannot be blank.",
+        "isIncorrectLength": "IP address is incorrect length.",
+        "isIncorrectFormat": "IP address range is invalid."
+      }
+    },
+    "infoMessages": {
+      "retrievePending": "Retrieving IP Filters",
+      "updatePending": "Updating IoT Hub",
+      "updateSuccess": "IoT Hub Successfully Updated",
+      "updateFailure": "IoT Hub Update Failed"
+    },
+    "listHeader": {
+      "text": "IP filters block or allow specific IP address ranges. Your filters are applied in order. Drag and drop a filter to change its priority in the list."
+    },
+    "revertDialogBox": {
+      "message": "Are you certain you wish to revert all changes?",
+      "no": "No",
+      "yes": "Yes"
+    },
+    "removeButton": {
+      "ariaLabel": "Remove IP filter",
+      "title": "Remove"
+    },
+    "revertButton": {
+      "ariaLabel": "Revert all Changes",
+      "helperText": "Revert your changes",
+      "name": "Revert"
+    },
+    "saveButton": {
+      "ariaLabel": "Save all Changes",
+      "helperText": "Save your changes",
+      "name": "Save"
+    },
+    "testButton": {
+      "ariaLabel": "Test IP Filters",
+      "helperText": "Test your IP filters",
+      "name": "Test"
+    },
+    "testIpAddress": {
+      "label": "IP address",
+      "placeHolder": "127.0.0.1",
+      "errorMessage": "Please enter a valid IP address"
+    },
+    "testVerifyButton": {
+      "name": "Test"
+    },
+    "testPanelMessages": {
+      "acceptedAction": "allowed",
+      "description": "Type an IP address (or a range) to test your filters.",
+      "matches": {
+        "prefix": "This IP address is",
+        "suffix": "by the following filter:"
+      },
+      "headerText": "Test filters",
+      "noMatch": "None of your filters affect provided IP address.",
+      "rejectedAction": "blocked",
+      "rowResult": "{{action}} by {{filterName}} : {{ipMask}}"
+    }
+  }
+}

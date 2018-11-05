@@ -1,0 +1,32 @@
+$themes: (
+  light: (
+    backgroundColor: #fff,
+    borderColor: $ibiza-border-color,
+    hoverColor: $ibiza-blue-hover,
+    closeIconColor: $ibiza-light-close-icon-color
+  ),
+  dark: (
+    backgroundColor: #000000,
+    borderColor: $ibiza-border-color,
+    hoverColor: $ibiza-gray-hover
+  ),
+);
+
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+      .theme-#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), '#{$key}');
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+  
+        @content;
+        $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

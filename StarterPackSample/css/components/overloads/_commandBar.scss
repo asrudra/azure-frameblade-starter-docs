@@ -1,0 +1,29 @@
+.iot-commandBar {
+    border-bottom-width: 1px;
+    border-bottom-style: solid; 
+    @include themify($themes) {
+        background-color: themed('backgroundColor');  
+        border-color: themed('borderColor');
+    }
+}
+
+/* hack -- the command bar style is propogated by office ui fabric into a sub-div */
+.iot-commandBar .iot-commandBar {
+    border: none;
+}
+
+.iot-commandBar div {
+    font-size: 12px;
+}
+
+.iot-commandBar button {
+    @include themify($themes) {
+        background-color: themed('backgroundColor');  
+    }
+}
+
+.iot-commandBar button:hover {
+    @include themify($themes) {
+        background-color: themed('hoverColor');  
+    }
+}

@@ -1,0 +1,23 @@
+.iot-list {
+    div {
+        font-size: 12px;
+    }
+    input {
+        font-size: 12px;
+    }
+    .ms-List-cell:hover {
+        background-color: $ibiza-blue-hover;
+    }
+    .ms-DetailsHeader-cellName {
+        font-weight: 900;
+    }
+    .ms-DetailsHeader:hover {
+        background-color: $ibiza-blue-hover;
+    }
+    .ms-DetailsRow:hover {
+        background-color: $ibiza-white-hover
+    }
+    .ms-DetailsHeader-cell:hover {
+        background-color: $ibiza-blue-hover;
+    }
+}
