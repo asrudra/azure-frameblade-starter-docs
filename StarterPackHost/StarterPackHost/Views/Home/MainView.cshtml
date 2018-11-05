@@ -1,0 +1,82 @@
+﻿@model StarterPackHost.ViewModels.MainViewModel
+@{
+    ViewData["Title"] = "Azure Portal View";
+}
+
+<iframe id="viewFrame" class="frame-content" src="/js/frame/index.html?trustedAuthority=https%3A%2F%2Flocalhost:44330" sandbox="allow-same-origin allow-scripts allow-popups allow-modals allow-forms" allow="microphone *"></iframe>
+
+@section Scripts
+{
+    <script>var frameSignature = 'FxFrameBlade'</script>
+    <script>var azureResourceManagementBearerToken = '@Model.AzureResourceManagementBearerToken'</script>
+    <script>
+        window.addEventListener("message", function (event) {
+
+            if (!event.data) return;
+            if (!event.data.kind) return;
+
+            const viewFrame = document.getElementById('viewFrame').contentWindow;
+            const armResourceParameters = {
+                resourceId: '',
+                resourceGroupName: '',
+                resourceName: '',
+                subscriptionId: ''
+            };
+
+            if (event.data.kind === 'azureResource') {
+                viewFrame.postMessage({
+                    data: {
+                        requestId: event.data.data.requestId,
+                        responseBody: armResourceParameters
+                    },
+                    kind: 'azureResource',
+                    signature: frameSignature
+                }, '*');
+            }
+
+            if (event.data.kind === 'armEndpoint') {
+                viewFrame.postMessage({
+                    data: {
+                        requestId: event.data.data.requestId,
+                        responseBody: 'https://management.azure.com'
+                    },
+                    kind: 'armEndpoint',
+                    signature: frameSignature
+                }, '*');
+            }
+
+            if (event.data.kind === 'authorizationToken') {
+                viewFrame.postMessage({
+                    data: {
+                        requestId: event.data.data.requestId,
+                        responseBody: azureResourceManagementBearerToken
+                    },
+                    kind: 'authorizationToken',
+                    signature: frameSignature
+                }, '*');
+        }
+
+            if (event.data.kind === 'languageCode') {
+                viewFrame.postMessage({
+                    data: {
+                        requestId: event.data.data.requestId,
+                        responseBody: 'en'
+                    },
+                    kind: 'languageCode',
+                    signature: frameSignature
+                }, '*');
+            }
+
+            if (event.data.kind === 'routeName') {
+                viewFrame.postMessage({
+                    data: {
+                        requestId: event.data.data.requestId,
+                        responseBody: 'ipFilter'
+                    },
+                    kind:  'routeName',
+                    signature: frameSignature
+                }, '*');
+            }
+        });
+    </script>
+}
