@@ -19,7 +19,6 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "@iotHubControlPlane/*": ["node_modules/microsoft-azure-devices-iothub-controlplane20180401/*"]
     }
   },
   "exclude": [

@@ -10,9 +10,6 @@
     "dnd-core": "4.0.5",
     "i18next": "11.6.0",
     "immutable": "4.0.0-rc.9",
-    "microsoft-azure-devices-iothub-controlplane20180401": "~2.0.0",
-    "microsoft-azure-devices-provisioning-controlplane20180122": "~2.0.0",
-    "ms-rest-azure-js": "^0.8.90",
     "ms-rest-js": "^0.12.311",
     "office-ui-fabric-react": "6.74.1",
     "react": "16.4.2",
@@ -110,7 +107,6 @@
     "testRegex": "(\\.|/)(spec)\\.(tsx?)$",
     "moduleNameMapper": {
       "^office-ui-fabric-react/lib": "<rootDir>/node_modules/office-ui-fabric-react/lib-commonjs",
-      "^@iotHubControlPlane/(.*)": "<rootDir>/node_modules/microsoft-azure-devices-iothub-controlplane20180401/$1"
     },
     "moduleFileExtensions": [
       "js",
