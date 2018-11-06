@@ -1,5 +1,6 @@
 import { Record } from 'immutable';
 import { Reducer } from 'redux';
+import { AzureSubscriptionsInterface } from './azureSubscriptions/state';
 import { AzureResourceInterface } from './shared/azureResource/state';
 import { IpFilterStateInterface } from './ipfilter/state';
 
@@ -22,4 +23,5 @@ export interface BaseState {
 export interface StateInterface {
     azureResource: StateInterfaceItem<AzureResourceInterface>;
     ipFilter: StateInterfaceItem<IpFilterStateInterface>;
+    azureSubscriptions: StateInterfaceItem<AzureSubscriptionsInterface>;
 }

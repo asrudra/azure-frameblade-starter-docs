@@ -1,5 +1,5 @@
 import * as React from 'react';
-import IPFilterViewContainer from './app/ipfilter/components/ipFilterViewContainer';
+import AzureSubscriptionsContainer from './app/azureSubscriptions/components/azureSubscriptionsViewContainer';
 import { EnvironmentSettingNames } from './app/services/models/environmentSettingNames';
 import { getSetting } from './app/services/portalEnvironmentService';
 
@@ -8,7 +8,7 @@ interface RouterState {
 }
 
 const ROUTE_COMPONENT_MAPPING = {
-    ipFilter: <IPFilterViewContainer/>
+    ipFilter: <AzureSubscriptionsContainer/>
 };
 
 export class Router extends React.Component<{}, RouterState> {
