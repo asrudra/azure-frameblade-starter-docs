@@ -4,6 +4,7 @@ import { AzureSubscription } from '../services/models/azureSubscription';
 
 export interface AzureSubscriptionsInterface {
     azureSubscriptions: AzureSubscription[];
+    nextLink: string;
 }
 
 export interface AzureSubscriptionsStateInterface extends BaseState, AzureSubscriptionsInterface {}
@@ -14,4 +15,5 @@ export const AzureSubscriptionsStateInitial = Record<AzureSubscriptionsStateInte
     error: false,
     fetched: false,
     fetching: false,
+    nextLink: ''
 });

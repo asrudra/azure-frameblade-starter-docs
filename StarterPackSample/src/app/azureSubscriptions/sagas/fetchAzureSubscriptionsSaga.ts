@@ -16,7 +16,7 @@ function* getAzureSubscriptionsSaga(): IterableIterator<ContinuingResultSet<Azur
         nextLink: ''                
     });
 
-    return resultSet.items;
+    return resultSet;
 }
 
 export function* fetchAzureSubscriptionsSaga() {
@@ -24,7 +24,8 @@ export function* fetchAzureSubscriptionsSaga() {
         const result = yield call(getAzureSubscriptionsSaga);
         yield put(fetchAzureSubscriptionsAction.done({
             result: {
-                azureSubscriptions: result
+                azureSubscriptions: result.items,
+                nextLink: result.nextLink
             }
         }));
     } catch (e) {

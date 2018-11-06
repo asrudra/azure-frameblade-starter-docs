@@ -10,7 +10,7 @@ const config: webpack.Configuration = {
     },
     output: {
         filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, '../WebRole/Content/Experimental/build/dist') // __dirname + '../WebRole/Content/Experimental/build/dist'// '/build/dist'
+        path: path.resolve(__dirname, './build/dist')
     },
 
     resolve: {

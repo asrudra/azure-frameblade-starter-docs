@@ -1,22 +1,20 @@
-import 'jest'; 
 import rootReducer from './reducer';
-import ipFilterReducer from '../ipfilter/reducers';
-import { fetchIpFiltersAction, saveIpFiltersAction } from '../ipfilter/actions';
-import { IpFilterStateInitial } from '../ipfilter/state';
+import azureSubscriptionsReducer from '../azureSubscriptions/reducers';
+import { fetchAzureSubscriptionsAction } from '../azureSubscriptions/actions';
+import { AzureSubscriptionsStateInitial } from '../azureSubscriptions/state';
 
 describe('rootReducer', () => {
-    context('ipFilter actions', () => {
-        [fetchIpFiltersAction.started(), saveIpFiltersAction.started({filterRules: []})].forEach((action) => {
-            it(`invokes ipFilterReducer on ${action.type}`, () => {
+    context('azureSubscriptions actions', () => {
+        [fetchAzureSubscriptionsAction.started()].forEach((action) => {
+            it(`invokes azure subscriptions reducer on ${action.type}`, () => {
                 expect(
                     rootReducer(
                         {
-                            azureResource: null,
-                            ipFilter: IpFilterStateInitial()
+                            azureSubscriptions: AzureSubscriptionsStateInitial()
                         },
                         action
-                    ).ipFilter
-                ).toEqual(ipFilterReducer(IpFilterStateInitial(), action));
+                    ).azureSubscriptions
+                ).toEqual(azureSubscriptionsReducer(AzureSubscriptionsStateInitial(), action));
             }); 
         });
     });

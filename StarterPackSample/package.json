@@ -27,7 +27,7 @@
   },
   "scripts": {
     "build": "npm run clean-build && npm run compose-localization-keys && npm run webpack-prod",
-    "clean-build": "IF EXIST d:\\msazure\\Azure-IotS-AP\\src\\WebRole\\Content\\Experimental\\build\\dist RMDIR /Q /S d:\\msazure\\Azure-IotS-AP\\src\\WebRole\\Content\\Experimental\\build\\dist",
+    "clean-build": "IF EXIST .\\build\\dist RMDIR /Q /S .\\build\\dist",
     "compose-localization-keys": "tsc ./scripts/composeLocalizationKeys.ts --skipLibCheck && node ./scripts/composeLocalizationKeys.js",
     "install-dependencies": "npm install --ci --no-optional",
     "list-dependencies": "tsc ./scripts/listDependencies.ts --skipLibCheck && node ./scripts/listDependencies.js",

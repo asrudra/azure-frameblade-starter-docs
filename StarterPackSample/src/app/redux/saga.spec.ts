@@ -1,15 +1,14 @@
-import 'jest';
 import { all, fork } from 'redux-saga/effects';
 import rootSaga from './saga';
-import ipFilterSaga from '../ipfilter/saga';
+import azureSubscriptionsSaga from '../azureSubscriptions/saga';
 
 describe('saga', () => {
-    it('runs ipFilterSaga in a fork', () => {
+    it('runs azureSubscriptionsSaga in a fork', () => {
         const generator = rootSaga();
 
         expect(generator.next()).toEqual({
             done: false,
-            value: all([fork(ipFilterSaga)])
+            value: all([fork(azureSubscriptionsSaga)])
         });
 
         expect(generator.next().done).toBeTruthy();

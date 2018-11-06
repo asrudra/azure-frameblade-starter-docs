@@ -60,3 +60,5 @@ Thumbs.db
 
 #Script Outputs #
 /src/scripts/outputs/
+
+/build

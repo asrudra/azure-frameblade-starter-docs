@@ -8,18 +8,19 @@ export interface GetSubscriptionParameters {
     nextLink: string;
 }
 export function getAzureSubscriptions(parameters: GetSubscriptionParameters): Promise<ContinuingResultSet<AzureSubscription>> {
-    const url: string = `${parameters.armEndpoint}/subscriptions?api-version=2016-06-01`;
+    const url: string = parameters.nextLink ? parameters.nextLink : `${parameters.armEndpoint}/subscriptions?api-version=2016-06-01`;
     const config: AxiosRequestConfig = {
         headers: {
-            Authorization: `Bearer ${parameters.authorizationToken}`
+            Authorization: `Bearer ${parameters.authorizationToken}`,
+            ContentType: 'application/json'
         }
     };
     
     return axios.get(url, config)
         .then((response) => {
             return {
-                continuationToken: response.data.nextLink ? response.data.nextLink : '',
-                items: response.data.value
+                items: response.data.value,
+                nextLink: response.data.nextLink ? response.data.nextLink : '',
             };
         })
         .catch((error) => {
