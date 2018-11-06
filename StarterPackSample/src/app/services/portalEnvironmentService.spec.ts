@@ -183,37 +183,4 @@ describe('portalEnvironmentService', () => {
             expect(portalEnvironmentService.promiseResolutions.size).toEqual(0);
         });
     });
-
-    context('getAzureResource', () => {
-        it('initializes and registers promise', () => {
-            portalEnvironmentService.getAzureResource();
-            expect(portalEnvironmentService.initialized).toEqual(true);
-            expect(portalEnvironmentService.parentOrigin).toBe(expectedOrigin);
-            expect(portalEnvironmentService.promiseResolutions).not.toBe(undefined);
-            expect(portalEnvironmentService.registeredActions).not.toBe(undefined);
-            expect(window.addEventListener).toHaveBeenCalled();
-            expect(window.postMessage).toHaveBeenCalled();
-        });
-
-        it('registers callback', () => {
-            expect(portalEnvironmentService.promiseResolutions.size).toEqual(1);
-        });
-
-        it('completes promise and removes from registry when message received', () => {
-            const firstEntry = portalEnvironmentService.promiseResolutions.keys().next().value;
-            const messageEvent = {
-                data: { 
-                    data: {
-                        requestId: firstEntry,
-                        responseBody: 1,
-                    },
-                    signature: frameSignatureTest
-                },
-                origin: expectedOrigin
-            };
-            portalEnvironmentService.receiveMessage(messageEvent as MessageEvent);
-            expect(portalEnvironmentService.promiseResolutions.has(firstEntry)).toEqual(false);
-            expect(portalEnvironmentService.promiseResolutions.size).toEqual(0);
-        });
-    });
 });

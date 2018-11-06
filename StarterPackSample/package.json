@@ -106,7 +106,7 @@
     },
     "testRegex": "(\\.|/)(spec)\\.(tsx?)$",
     "moduleNameMapper": {
-      "^office-ui-fabric-react/lib": "<rootDir>/node_modules/office-ui-fabric-react/lib-commonjs",
+      "^office-ui-fabric-react/lib": "<rootDir>/node_modules/office-ui-fabric-react/lib-commonjs"
     },
     "moduleFileExtensions": [
       "js",

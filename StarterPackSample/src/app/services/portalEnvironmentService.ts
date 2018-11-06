@@ -1,5 +1,4 @@
 import { generateUuid } from 'ms-rest-js';
-import { AzureResource } from './models/azureResource';
 import { EnvironmentSettingNames } from './models/environmentSettingNames';
 
 declare var frameSignature: string;
@@ -18,10 +17,6 @@ export function registerActionOnChange(changeType: string, action: (value: any) 
 
 export function getSetting(settingName: EnvironmentSettingNames): Promise<string> {
     return executeSettingRequest(settingName);
-}
-
-export function getAzureResource(): Promise<AzureResource> {
-    return executeSettingRequest(EnvironmentSettingNames.AZURE_RESOURCE);
 }
 
 export function receiveMessage(event: MessageEvent) {
