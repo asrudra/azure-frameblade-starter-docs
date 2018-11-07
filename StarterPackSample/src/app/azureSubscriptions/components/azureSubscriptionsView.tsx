@@ -23,11 +23,13 @@ export class AzureSubscriptionsView extends React.Component<AzureSubscriptionsVi
     }
 
     public componentDidMount() {
-        if (!this.props.isFetchingAzureSubscriptions && 
-            !this.props.hasFetchedAzureSubscriptions) {
-            
-            this.props.fetchAzureSubscriptions('');
+        if (this.props.isFetchingAzureSubscriptions || 
+            this.props.hasFetchedAzureSubscriptions) {
+                return;
         }
+            
+        this.props.fetchAzureSubscriptions('');
+        
     }
 
     public generateSubscriptionListColumns(): IColumn[] {

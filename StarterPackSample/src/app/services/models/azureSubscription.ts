@@ -3,5 +3,5 @@ export interface AzureSubscription {
     displayName?: string;
     id: string;
     state?: string;
-    subscriptionId: string;
+    subscriptionId?: string;
 }

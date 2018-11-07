@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`azureSubscriptionsView snapshot matches snapshot when error present 1`] = `
+<div
+  className="listViewDisplay"
+>
+  <div
+    className="listViewDisplay-header"
+  >
+    <AzureSubscriptionsMenuBar
+      onRefreshClick={[Function]}
+      refreshDisabled={false}
+      t={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "azureSubscriptions.errors.failedToGetSubscriptions",
+            ],
+            Array [
+              "azureSubscriptions.header.description",
+            ],
+            Array [
+              "azureSubscriptions.subscriptionsTable.id",
+            ],
+            Array [
+              "azureSubscriptions.subscriptionsTable.displayName",
+            ],
+            Array [
+              "azureSubscriptions.subscriptionsTable.state",
+            ],
+            Array [
+              "azureSubscriptions.subscriptionsTable.authorizationSource",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+    />
+    <StyledMessageBarBase
+      className="listViewDisplay-message"
+      messageBarType={5}
+    />
+  </div>
+  <div
+    className="listViewDisplay-body"
+  >
+    <div
+      className="listViewDisplay-content"
+    >
+      <p />
+    </div>
+    <div
+      className="listViewDisplay-content"
+    >
+      <StyledWithViewportComponent
+        checkboxVisibility={2}
+        columns={
+          Array [
+            Object {
+              "fieldName": "id",
+              "key": "id",
+              "maxWidth": 300,
+              "minWidth": 100,
+              "name": undefined,
+            },
+            Object {
+              "fieldName": "displayName",
+              "key": "displayName",
+              "maxWidth": 300,
+              "minWidth": 100,
+              "name": undefined,
+            },
+            Object {
+              "fieldName": "state",
+              "key": "state",
+              "maxWidth": 300,
+              "minWidth": 100,
+              "name": undefined,
+            },
+            Object {
+              "fieldName": "authorizationSource",
+              "key": "authorizationSource",
+              "maxWidth": 300,
+              "minWidth": 100,
+              "name": undefined,
+            },
+          ]
+        }
+        items={Array []}
+        setKey="subscriptions"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`azureSubscriptionsView snapshot matches snapshot when no error present 1`] = `
+<div
+  className="listViewDisplay"
+>
+  <div
+    className="listViewDisplay-header"
+  >
+    <AzureSubscriptionsMenuBar
+      onRefreshClick={[Function]}
+      refreshDisabled={false}
+      t={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "azureSubscriptions.header.description",
+            ],
+            Array [
+              "azureSubscriptions.subscriptionsTable.id",
+            ],
+            Array [
+              "azureSubscriptions.subscriptionsTable.displayName",
+            ],
+            Array [
+              "azureSubscriptions.subscriptionsTable.state",
+            ],
+            Array [
+              "azureSubscriptions.subscriptionsTable.authorizationSource",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+    />
+  </div>
+  <div
+    className="listViewDisplay-body"
+  >
+    <div
+      className="listViewDisplay-content"
+    >
+      <p />
+    </div>
+    <div
+      className="listViewDisplay-content"
+    >
+      <StyledWithViewportComponent
+        checkboxVisibility={2}
+        columns={
+          Array [
+            Object {
+              "fieldName": "id",
+              "key": "id",
+              "maxWidth": 300,
+              "minWidth": 100,
+              "name": undefined,
+            },
+            Object {
+              "fieldName": "displayName",
+              "key": "displayName",
+              "maxWidth": 300,
+              "minWidth": 100,
+              "name": undefined,
+            },
+            Object {
+              "fieldName": "state",
+              "key": "state",
+              "maxWidth": 300,
+              "minWidth": 100,
+              "name": undefined,
+            },
+            Object {
+              "fieldName": "authorizationSource",
+              "key": "authorizationSource",
+              "maxWidth": 300,
+              "minWidth": 100,
+              "name": undefined,
+            },
+          ]
+        }
+        items={Array []}
+        setKey="subscriptions"
+      />
+    </div>
+  </div>
+</div>
+`;
