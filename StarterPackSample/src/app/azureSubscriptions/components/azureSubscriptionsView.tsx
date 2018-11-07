@@ -64,14 +64,14 @@ export class AzureSubscriptionsView extends React.Component<AzureSubscriptionsVi
     }
 
     public render(): JSX.Element {
-        const { t, errorFetchingAzureSubscriptions, nextLink } = this.props;
+        const { t, errorFetchingAzureSubscriptions, isFetchingAzureSubscriptions, nextLink } = this.props;
 
         return (
             <div className="listViewDisplay">
                 <div className="listViewDisplay-header">    
                     <AzureSubscriptionsMenuBar 
                         onRefreshClick={this.refreshHandler}
-                        refreshDisabled={false}
+                        refreshDisabled={isFetchingAzureSubscriptions}
                         t={this.props.t}
                     />
 
