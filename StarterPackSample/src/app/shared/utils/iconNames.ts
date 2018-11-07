@@ -3,6 +3,7 @@ export enum IconNames {
     Allow = 'SkypeCircleCheck',
     Block = 'BlockedSolid',
     Delete = 'Delete',
+    Refresh = 'Refresh',
     Save = 'Save',
     TestCase = 'TestCase',
     Undo = 'Undo'

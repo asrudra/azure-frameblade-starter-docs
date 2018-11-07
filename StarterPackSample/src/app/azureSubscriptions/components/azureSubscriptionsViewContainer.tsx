@@ -6,13 +6,16 @@ import { AzureSubscriptionsView, AzureSubscriptionsViewProps } from './azureSubs
 import { AzureSubscriptionsStateInterface } from '../state';
 import { fetchAzureSubscriptionsAction } from '../actions';
 import { IM, NonFunctionProperties, FunctionProperties, StateInterface } from '../../types';
-import { getAzureSubscriptionsSelector, getNextLinkSelector } from '../selectors';
+import { getAzureSubscriptionsSelector, getNextLinkSelector, getFetchedStatusSelector, getFetchingStatusSelector, getErrorStatusSelector } from '../selectors';
 import { TRANSLATION_NAMESPACE } from '../../constants';
 
 const mapStateToProps = (state: StateInterface, ownProps: AzureSubscriptionsViewProps): NonFunctionProperties<Partial<AzureSubscriptionsViewProps>> => {
     const azureSubscriptionsState = state.azureSubscriptions as IM<AzureSubscriptionsStateInterface>;
     return {
         azureSubscriptions: getAzureSubscriptionsSelector(azureSubscriptionsState),
+        errorFetchingAzureSubscriptions: getErrorStatusSelector(azureSubscriptionsState),
+        hasFetchedAzureSubscriptions: getFetchedStatusSelector(azureSubscriptionsState),
+        isFetchingAzureSubscriptions: getFetchingStatusSelector(azureSubscriptionsState),
         nextLink: getNextLinkSelector(azureSubscriptionsState)
     };
 };

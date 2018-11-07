@@ -7,7 +7,7 @@ import * as i18next from 'i18next';
 import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
 import { Router } from './router';
 import { Themer } from './themer';
-import '../css/main.scss';
+import './css/main.scss';
 import { EnvironmentSettingNames } from './app/services/models/environmentSettingNames';
 import { getSetting } from './app/services/portalEnvironmentService';
 import resources from './localization/resources';
