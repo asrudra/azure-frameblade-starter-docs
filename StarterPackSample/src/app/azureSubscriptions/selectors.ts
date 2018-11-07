@@ -7,6 +7,7 @@ const getAzureSubscriptions: Selector<IM<AzureSubscriptionsStateInterface>, Azur
 const getFetchingStatus: Selector<IM<AzureSubscriptionsStateInterface>, boolean> = (state) => state.get('fetching', false);
 const getFetchedStatus: Selector<IM<AzureSubscriptionsStateInterface>, boolean> = (state) => state.get('fetched', false);
 const getErrorStatus: Selector<IM<AzureSubscriptionsStateInterface>, boolean> = (state) => state.get('error', false);
+const getNextLink: Selector<IM<AzureSubscriptionsStateInterface>, string> = (state) => state.get('nextLink', '');
 
 export const getAzureSubscriptionsSelector = createSelector(
     [getAzureSubscriptions],
@@ -33,5 +34,12 @@ export const getErrorStatusSelector = createSelector(
     [getErrorStatus],
     (error) => {
         return error;
+    }
+);
+
+export const getNextLinkSelector = createSelector(
+    [getNextLink],
+    (nextLink) => {
+        return nextLink;
     }
 );

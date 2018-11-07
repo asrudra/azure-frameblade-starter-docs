@@ -4,7 +4,8 @@ import { AzureSubscription } from '../../services/models/azureSubscription';
 
 export interface AzureSubscriptionsViewProps {
     azureSubscriptions: AzureSubscription[];
-    fetch: () => void;
+    fetchAzureSubscriptions: (nextLink: string) => void;
+    nextLink: string;
     t: TranslationFunction;
 }
 
@@ -16,7 +17,7 @@ export class AzureSubscriptionsView extends React.Component<AzureSubscriptionsVi
     }
 
     public componentDidMount() {
-        this.props.fetch();
+        this.props.fetchAzureSubscriptions('');
     }
 
     public render(): JSX.Element {

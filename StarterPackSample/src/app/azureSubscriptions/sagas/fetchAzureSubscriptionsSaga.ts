@@ -1,34 +1,40 @@
-import { call, put, CallEffect } from 'redux-saga/effects';
-import { getAzureSubscriptions } from '../../services/azureService';
-import { getSetting } from '../../services/portalEnvironmentService';
-import { EnvironmentSettingNames } from '../../services/models/environmentSettingNames';
-import { fetchAzureSubscriptionsAction } from '../actions';
+import { call, put } from 'redux-saga/effects';
+import { Action } from 'typescript-fsa';
 import { AzureSubscription } from '../../services/models/azureSubscription';
+import { AzureSubscriptionsInterface } from '../state';
 import { ContinuingResultSet } from '../../services/models/continuingResultSet';
+import { clearAzureSubscriptionsAction, fetchAzureSubscriptionsAction } from '../actions';
+import { getSetting } from '../../services/portalEnvironmentService';
+import { getAzureSubscriptions } from '../../services/azureService';
+import { EnvironmentSettingNames } from '../../services/models/environmentSettingNames';
 
-function* getAzureSubscriptionsSaga(): IterableIterator<ContinuingResultSet<AzureSubscription> | CallEffect | undefined> {
-    
+export function* fetchAzureSubscriptionsSaga(action: Action<Partial<AzureSubscriptionsInterface>>) {
+   
+    if (!action.payload.nextLink) {
+        put(clearAzureSubscriptionsAction);
+    }
+
     const authorizationToken = yield call(getSetting, EnvironmentSettingNames.AUTHORIZATION_TOKEN);
     const armEndpoint = yield call(getSetting, EnvironmentSettingNames.ARM_ENDPOINT);
-    const resultSet: ContinuingResultSet<AzureSubscription> = yield call(getAzureSubscriptions, {
-        armEndpoint,
-        authorizationToken,
-        nextLink: ''                
-    });
-
-    return resultSet;
-}
-
-export function* fetchAzureSubscriptionsSaga() {
+   
     try {
-        const result = yield call(getAzureSubscriptionsSaga);
+        const resultSet: ContinuingResultSet<AzureSubscription> = yield call(getAzureSubscriptions, {
+            armEndpoint,
+            authorizationToken,
+            nextLink: action.payload.nextLink                
+        });
+
         yield put(fetchAzureSubscriptionsAction.done({
+            params: action.payload,
             result: {
-                azureSubscriptions: result.items,
-                nextLink: result.nextLink
+                azureSubscriptions: resultSet.items,
+                nextLink: resultSet.nextLink
             }
         }));
     } catch (e) {
-        yield put(fetchAzureSubscriptionsAction.failed({error: {code: -1}}));
+        yield put(fetchAzureSubscriptionsAction.failed({
+            error: { code: -1 },
+            params: action.payload
+        }));
     }
 }

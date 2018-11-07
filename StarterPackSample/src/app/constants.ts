@@ -1,9 +1,8 @@
 import { IPartialTheme } from 'office-ui-fabric-react/lib/Styling';
 
 export const ADD_SUFFIX = 'ADD';
-export const FETCH_GUIDED_TOUR_VISIT_SUFFIX = 'FETCH_VISIT';
+export const CLEAR_SUFFIX = 'CLEAR';
 export const FETCH_SUFFIX = 'FETCH';
-export const MARK_GUIDED_TOUR_VISITED_SUFFIX = 'MARK_AS_VISITED';
 export const SAVE_SUFFIX = 'SAVE';
 export const UPDATE_SUFFIX = 'UPDATE';
 export const TRANSLATION_NAMESPACE = 'translation';

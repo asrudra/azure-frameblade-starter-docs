@@ -1,8 +1,15 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { AzureSubscriptionsStateType, AzureSubscriptionsStateInitial } from './state';
-import { fetchAzureSubscriptionsAction } from './actions';
+import { fetchAzureSubscriptionsAction, clearAzureSubscriptionsAction } from './actions';
 
 const reducer = reducerWithInitialState<AzureSubscriptionsStateType>(AzureSubscriptionsStateInitial())
+
+    .case(clearAzureSubscriptionsAction, (state: AzureSubscriptionsStateType) => {
+        return state.merge({
+            azureSubscriptions: [],
+            nextLink: ''
+        });
+    })
     .case(fetchAzureSubscriptionsAction.started, (state: AzureSubscriptionsStateType) => {
         return state.merge({
             fetched: false,
@@ -10,12 +17,14 @@ const reducer = reducerWithInitialState<AzureSubscriptionsStateType>(AzureSubscr
         });
     })
     .case(fetchAzureSubscriptionsAction.done, (state: AzureSubscriptionsStateType, payload: any) => { // tslint:disable-line: no-any
+
+        const newArray = [...state.azureSubscriptions, ...payload.result.azureSubscriptions];
         return state.merge({
-            azureSubscriptions: payload.result.azureSubscriptions,
+            azureSubscriptions: newArray,
             error: false,
             fetched: true,
             fetching: false,
-            
+            nextLink: payload.result.nextLink            
         });
     })
     .case(fetchAzureSubscriptionsAction.failed, (state: AzureSubscriptionsStateType) => {
