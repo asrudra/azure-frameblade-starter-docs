@@ -90,7 +90,8 @@
       "!src/index.tsx",
       "!src/app/shared/utils/iconNames.ts",
       "!src/app/shared/constants.ts",
-      "!src/app/shared/types.ts"
+      "!src/app/shared/types.ts",
+      "!src/localization/resourceKeys.ts"
     ],
     "testEnvironment": "jsdom",
     "coverageReporters": [

@@ -11,7 +11,7 @@ import { EnvironmentSettingNames } from '../../services/models/environmentSettin
 export function* fetchAzureSubscriptionsSaga(action: Action<Partial<AzureSubscriptionsInterface>>) {
    
     if (!action.payload.nextLink) {
-        put(clearAzureSubscriptionsAction);
+        yield put(clearAzureSubscriptionsAction());
     }
 
     const authorizationToken = yield call(getSetting, EnvironmentSettingNames.AUTHORIZATION_TOKEN);
