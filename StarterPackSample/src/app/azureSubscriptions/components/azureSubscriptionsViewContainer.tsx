@@ -9,7 +9,7 @@ import { IM, NonFunctionProperties, FunctionProperties, StateInterface } from '.
 import { getAzureSubscriptionsSelector, getNextLinkSelector, getFetchedStatusSelector, getFetchingStatusSelector, getErrorStatusSelector } from '../selectors';
 import { TRANSLATION_NAMESPACE } from '../../constants';
 
-const mapStateToProps = (state: StateInterface, ownProps: AzureSubscriptionsViewProps): NonFunctionProperties<Partial<AzureSubscriptionsViewProps>> => {
+export const mapStateToProps = (state: StateInterface, ownProps: AzureSubscriptionsViewProps): NonFunctionProperties<Partial<AzureSubscriptionsViewProps>> => {
     const azureSubscriptionsState = state.azureSubscriptions as IM<AzureSubscriptionsStateInterface>;
     return {
         azureSubscriptions: getAzureSubscriptionsSelector(azureSubscriptionsState),
@@ -20,7 +20,7 @@ const mapStateToProps = (state: StateInterface, ownProps: AzureSubscriptionsView
     };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>): FunctionProperties<Partial<AzureSubscriptionsViewProps>> => {
+export const mapDispatchToProps = (dispatch: Dispatch<AnyAction>): FunctionProperties<Partial<AzureSubscriptionsViewProps>> => {
     return {
         fetchAzureSubscriptions: (nextLink: string) => dispatch(fetchAzureSubscriptionsAction.started({nextLink}))
     };
