@@ -8,7 +8,7 @@ interface RouterState {
 }
 
 const ROUTE_COMPONENT_MAPPING = {
-    ipFilter: <AzureSubscriptionsContainer/>
+    azureSubscriptions: <AzureSubscriptionsContainer/>
 };
 
 export class Router extends React.Component<{}, RouterState> {
