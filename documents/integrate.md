@@ -44,7 +44,7 @@ For event (e.g. push to IFrame) scenarios, `requestId` and `kind` properties sha
 ## External Host Integration
 StarterPackHost supplies a .NET Core 2.x web application able to render the build output of StarterPackSample.  The solution surfaces StarterPackSample's index.html file in an IFrame view available at ./home/MainView when running the application.  The application does require some preconfiguration before use.  
 
-1. `Copy StartPackSample dist contents to a location within the project.`  Specifically, index.html and associated JavaScript files must reside under `\wwwroot\js\frame.`  An additional NPM script may be useful here:
+* `Copy StartPackSample dist contents to a location within the project.`  Specifically, index.html and associated JavaScript files must reside under `\wwwroot\js\frame.`  An additional NPM script may be useful here:
 ```
 "copy-build-host":
     IF EXIST ..\\StarterPackHost\\StarterPackHost\\wwwroot\\js\\frame 
@@ -52,7 +52,7 @@ StarterPackHost supplies a .NET Core 2.x web application able to render the buil
     XCOPY .\\build\\dist ..\\StarterPackHost\\StarterPackHost\\wwwroot\\js\\frame\\ /S
 ```
 
-2. `Configure Azure Active Directory Authentication`  The application relies on a multi-tenant Azure Active Directory (AAD) application to authenticate users and retrieve authorization tokens for Azure Resource Management (ARM) service calls.  The following steps describe how to create the application.
+* `Configure Azure Active Directory Authentication`  The application relies on a multi-tenant Azure Active Directory (AAD) application to authenticate users and retrieve authorization tokens for Azure Resource Management (ARM) service calls.  The following steps describe how to create the application.
 
     1. Open the Azure Portal (portal.azure.com) in a browser
     2. Click `Azure Active Directory`
