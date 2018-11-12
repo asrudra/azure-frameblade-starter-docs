@@ -37,6 +37,7 @@ Consuming teams must install the following tools to successfully utilize the pro
 * [NodeJS](https://nodejs.org/en/): v8.9.4 or greater.
 * [NPM](https://www.npmjs.com/): (installed with NodeJS) v5.6.0 or greater.
 * [TypeScript](https://www.typescriptlang.org/): v2.9.2. 
+
  ```
 npm install -g typescript@2.9.2 
 ```
