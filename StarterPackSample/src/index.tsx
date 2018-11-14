@@ -12,12 +12,14 @@ import { EnvironmentSettingNames } from './app/services/models/environmentSettin
 import { getSetting } from './app/services/portalEnvironmentService';
 import resources from './localization/resources';
 import store from './app/redux/store';
+import { initialize as initializeTelemetryService } from './app/services/telemetryService';
 
 const currentLanguage = 'en'; // should come from Azure Portal
 const fallbackLanguage = 'en';
 
 initializeIcons();
 initializeCurrentLanguage();
+initializeTelemetryService();
 
 i18next.init({
   fallbackLng: fallbackLanguage,
