@@ -2,7 +2,7 @@ import { AppInsights } from 'applicationinsights-js';
 
 export function initialize() {
     if (AppInsights.downloadAndSetup) {
-        AppInsights.downloadAndSetup({ instrumentationKey: 'd224c40b-ae50-44da-a3eb-c4600c2fa2cc'});
+        AppInsights.downloadAndSetup({ instrumentationKey: 'enter key'});
     }
 }
 
