@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TranslationFunction } from 'i18next';
 import { IColumn, DefaultButton, DetailsList, CheckboxVisibility, MessageBar, MessageBarType } from 'office-ui-fabric-react';
-import { LocalizationContextConsumer } from '../../contexts/localizationContext';
+import { LocalizationContextConsumer, LocationContextInterface } from '../../contexts/localizationContext';
 import { AzureSubscription } from '../../services/models/azureSubscription';
 import { AzureSubscriptionsMenuBar } from './azureSubscriptionsMenuBar';
 import { ResourceKeys } from '../../../localization/resourceKeys';
@@ -54,7 +54,7 @@ export class AzureSubscriptionsView extends React.Component<AzureSubscriptionsVi
 
         return (
             <LocalizationContextConsumer>
-                {(context: any) => (// tslint:disable-line: no-any
+                {(context: LocationContextInterface) => (
                     <div className="listViewDisplay">
                         <div className="listViewDisplay-header">
                             <AzureSubscriptionsMenuBar

@@ -3,7 +3,7 @@ import { CommandBar, ICommandBarItemProps } from 'office-ui-fabric-react/lib/Com
 import { TranslationFunction } from 'i18next';
 import { IconNames } from '../../shared/utils/iconNames';
 import { ResourceKeys } from '../../../localization/resourceKeys';
-import { LocalizationContextConsumer } from '../../contexts/localizationContext';
+import { LocalizationContextConsumer, LocationContextInterface } from '../../contexts/localizationContext';
 
 export interface AzureSubscriptionsMenuBarProps {
   onRefreshClick: () => void;
@@ -14,7 +14,7 @@ export class AzureSubscriptionsMenuBar extends React.Component<AzureSubscription
     public render(): JSX.Element {
         return (
             <LocalizationContextConsumer>
-                {(context: any) => (// tslint:disable-line:no-any
+                {(context: LocationContextInterface) => (
                     <CommandBar
                         items={[this.generateRefreshButtonProps(context.t)]}
                         overflowItems={[]}
