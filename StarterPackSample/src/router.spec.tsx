@@ -14,7 +14,7 @@ describe('router', () => {
     });
 
     describe('componentWillMount', () => {
-        it('calls EnvironmentService to get routeName', async (done) => {
+        it('calls EnvironmentService to get routeName', async () => {
             const spy = jest.spyOn(EnvironmentService, 'getSetting').mockResolvedValue('my-route');
 
             const wrapper  = mount(<Router/>);
@@ -25,7 +25,6 @@ describe('router', () => {
 
             await Promise.resolve();
             expect((wrapper.state() as any).routeName).toEqual('my-route'); // tslint:disable-line: no-any
-            done();
         });
     });
 });

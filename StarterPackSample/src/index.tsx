@@ -2,7 +2,7 @@
 import { Provider } from 'react-redux';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { I18nextProvider } from 'react-i18next';
+import { I18nextProvider, withNamespaces } from 'react-i18next';
 import * as i18next from 'i18next';
 import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
 import { Router } from './router';
@@ -13,6 +13,8 @@ import { getSetting } from './app/services/portalEnvironmentService';
 import resources from './localization/resources';
 import store from './app/redux/store';
 import { initialize as initializeTelemetryService } from './app/services/telemetryService';
+import { LocalizationContextProvider } from './app/contexts/localizationContext';
+import { TRANSLATION_NAMESPACE } from './app/constants';
 
 const currentLanguage = 'en'; // should come from Azure Portal
 const fallbackLanguage = 'en';
@@ -31,18 +33,22 @@ i18next.init({
   resources,
 });
 
-const ViewHolder = () => (
+const ViewHolder = (translationObject: any) => (// tslint:disable-line: no-any
   <I18nextProvider i18n={i18next}>
       <Provider store={store}>
-        <Themer>
-          <Router/>
-        </Themer>
+        <LocalizationContextProvider value={{t: translationObject.t}}>
+          <Themer>
+            <Router/>
+          </Themer>
+        </LocalizationContextProvider>
       </Provider>
   </I18nextProvider>
 );
 
+const App = withNamespaces(TRANSLATION_NAMESPACE)(ViewHolder);
+
 ReactDOM.render(
-    <ViewHolder />, document.getElementById('reactTarget')
+    <App/>, document.getElementById('reactTarget')
 );
 
 function initializeCurrentLanguage() {

@@ -10,7 +10,7 @@ const state: StateInterface = {
         error: false,
         fetched: false,
         fetching: false,
-        nextLink: ''           
+        nextLink: ''
     })
 };
 
@@ -29,7 +29,7 @@ describe('generateMessage', () => {
     });
 
     it('assigns state to props', () => {
-        const result = mapStateToProps(state, null);
+        const result = mapStateToProps(state);
         expect(result.azureSubscriptions).toEqual(subscriptions);
         expect(result.nextLink).toEqual('nextLink');
         expect(result.errorFetchingAzureSubscriptions).toEqual(3);
@@ -40,7 +40,7 @@ describe('generateMessage', () => {
     it('assigns dispatch to props', () => {
         const dispatch = jest.fn();
         mapDispatchToProps(dispatch).fetchAzureSubscriptions('nextLink1');
-        expect(dispatch.mock.calls[0][0]).toEqual({ 
+        expect(dispatch.mock.calls[0][0]).toEqual({
             payload: {
                 nextLink: 'nextLink1'
             },

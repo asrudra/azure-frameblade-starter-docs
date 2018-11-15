@@ -1,35 +1,37 @@
 import * as React from 'react';
-import { shallow, mount } from 'enzyme';
 import { AzureSubscriptionsView } from './azureSubscriptionsView';
+import { testWithLocalizationContext } from '../../shared/utils/testHelpers';
+import { mount } from 'enzyme';
+import { AzureSubscriptionsMenuBar } from './azureSubscriptionsMenuBar';
 
 describe('azureSubscriptionsView', () => {
-    
+
     context('snapshot', () => {
         it('matches snapshot when no error present', () => {
-            const wrapper = shallow(
-                <AzureSubscriptionsView 
+            const wrapper = testWithLocalizationContext(
+                <AzureSubscriptionsView
                     azureSubscriptions={[]}
                     fetchAzureSubscriptions={jest.fn()}
                     hasFetchedAzureSubscriptions={false}
                     isFetchingAzureSubscriptions={false}
                     errorFetchingAzureSubscriptions={false}
                     nextLink={''}
-                    t={jest.fn()}
                 />);
+
             expect(wrapper).toMatchSnapshot();
         });
 
         it('matches snapshot when error present', () => {
-            const wrapper = shallow(
-                <AzureSubscriptionsView 
+            const wrapper = testWithLocalizationContext(
+                <AzureSubscriptionsView
                     azureSubscriptions={[]}
                     fetchAzureSubscriptions={jest.fn()}
                     hasFetchedAzureSubscriptions={false}
                     isFetchingAzureSubscriptions={false}
                     errorFetchingAzureSubscriptions={true}
                     nextLink={''}
-                    t={jest.fn()}
                 />);
+
             expect(wrapper).toMatchSnapshot();
         });
     });
@@ -37,89 +39,82 @@ describe('azureSubscriptionsView', () => {
     context('componentDidMount', () => {
         it('calls fetch if hasFetched equals false and isFetching equals false', () => {
             const mockFetch = jest.fn();
-            shallow(
-                <AzureSubscriptionsView 
+            testWithLocalizationContext(
+                <AzureSubscriptionsView
                     azureSubscriptions={[]}
                     fetchAzureSubscriptions={mockFetch}
                     hasFetchedAzureSubscriptions={false}
                     isFetchingAzureSubscriptions={false}
                     errorFetchingAzureSubscriptions={false}
                     nextLink={''}
-                    t={jest.fn()}
                 />);
-            
-            expect(mockFetch).toHaveBeenCalledWith('');            
+
+            expect(mockFetch).toHaveBeenCalledWith('');
         });
 
         it('does not call fetch if hasFetched equals true', () => {
             const mockFetch = jest.fn();
-            shallow(
-                <AzureSubscriptionsView 
+            testWithLocalizationContext(
+                <AzureSubscriptionsView
                     azureSubscriptions={[]}
                     fetchAzureSubscriptions={mockFetch}
                     hasFetchedAzureSubscriptions={true}
                     isFetchingAzureSubscriptions={false}
                     errorFetchingAzureSubscriptions={false}
                     nextLink={''}
-                    t={jest.fn()}
                 />);
-            
+
             expect(mockFetch).not.toHaveBeenCalled();
         });
 
         it ('does not call fetch if isFetching equals true', () => {
             const mockFetch = jest.fn();
-            shallow(
-                <AzureSubscriptionsView 
+            testWithLocalizationContext(
+                <AzureSubscriptionsView
                     azureSubscriptions={[]}
                     fetchAzureSubscriptions={mockFetch}
                     hasFetchedAzureSubscriptions={false}
                     isFetchingAzureSubscriptions={true}
                     errorFetchingAzureSubscriptions={false}
                     nextLink={''}
-                    t={jest.fn()}
                 />);
-            
+
             expect(mockFetch).not.toHaveBeenCalled();
         });
     });
 
-    context('loadMoreHandler', () => {
-        it('calls fetchAzureSubscriptions with next link', () => {
+    context('render/load-more-button', () => {
+        it('calls fetchAzureSubscriptions with next link on loadMore button click', () => {
             const mockFetch = jest.fn();
-            const wrapper = shallow(
-                <AzureSubscriptionsView 
+            const wrapper = testWithLocalizationContext(
+                <AzureSubscriptionsView
                     azureSubscriptions={[]}
                     fetchAzureSubscriptions={mockFetch}
                     hasFetchedAzureSubscriptions={false}
                     isFetchingAzureSubscriptions={true}
                     errorFetchingAzureSubscriptions={false}
                     nextLink={'nextLink'}
-                    t={jest.fn()}
                 />);
-            
-            // tslint:disable-next-line:no-any
-            (wrapper.instance() as any).loadMoreHandler();
+
+            wrapper.find('.load-more-button').simulate('click');
             expect(mockFetch).toHaveBeenCalledWith('nextLink');
         });
     });
 
-    context ('refreshHandler', () => {
-        it('calls fetchAzureSubscriptions with empty next link', () => {
+    context ('render/AzureSubscriptionsMenuBar', () => {
+        it('calls fetchAzureSubscriptions with empty next link on refresh click', () => {
             const mockFetch = jest.fn();
-            const wrapper = shallow(
-                <AzureSubscriptionsView 
+            const wrapper = testWithLocalizationContext(
+                <AzureSubscriptionsView
                     azureSubscriptions={[]}
                     fetchAzureSubscriptions={mockFetch}
                     hasFetchedAzureSubscriptions={false}
                     isFetchingAzureSubscriptions={true}
                     errorFetchingAzureSubscriptions={false}
                     nextLink={'nextLink'}
-                    t={jest.fn()}
                 />);
-            
-            // tslint:disable-next-line:no-any
-            (wrapper.instance() as any).refreshHandler();
+
+            wrapper.find(AzureSubscriptionsMenuBar).prop('onRefreshClick')();
             expect(mockFetch).toHaveBeenCalledWith('');
         });
     });

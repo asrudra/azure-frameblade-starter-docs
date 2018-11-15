@@ -1,21 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`azureSubscriptionsMenuBar calls command handlers calls mock refreshCallback on refresh command click 1`] = `
-<AzureSubscriptionsMenuBar
-  onRefreshClick={
-    [MockFunction] {
-      "calls": Array [
-        Array [],
-      ],
-      "results": Array [
-        Object {
-          "isThrow": false,
-          "value": undefined,
-        },
-      ],
-    }
-  }
-  refreshDisabled={false}
+<Component
   t={
     [MockFunction] {
       "calls": Array [
@@ -2598,7 +2584,7 @@ exports[`azureSubscriptionsMenuBar calls command handlers calls mock refreshCall
       </ResizeGroupBase>
     </CommandBarBase>
   </StyledCommandBarBase>
-</AzureSubscriptionsMenuBar>
+</Component>
 `;
 
 exports[`azureSubscriptionsMenuBar disables/enables command(s) disables refresh when refreshDisabled equals true 1`] = `

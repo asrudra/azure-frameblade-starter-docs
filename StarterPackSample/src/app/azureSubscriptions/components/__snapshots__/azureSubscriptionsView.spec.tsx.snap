@@ -10,56 +10,6 @@ exports[`azureSubscriptionsView snapshot matches snapshot when error present 1`]
     <AzureSubscriptionsMenuBar
       onRefreshClick={[Function]}
       refreshDisabled={false}
-      t={
-        [MockFunction] {
-          "calls": Array [
-            Array [
-              "azureSubscriptions.errors.failedToGetSubscriptions",
-            ],
-            Array [
-              "azureSubscriptions.header.description",
-            ],
-            Array [
-              "azureSubscriptions.subscriptionsTable.id",
-            ],
-            Array [
-              "azureSubscriptions.subscriptionsTable.displayName",
-            ],
-            Array [
-              "azureSubscriptions.subscriptionsTable.state",
-            ],
-            Array [
-              "azureSubscriptions.subscriptionsTable.authorizationSource",
-            ],
-          ],
-          "results": Array [
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-          ],
-        }
-      }
     />
     <StyledMessageBarBase
       className="listViewDisplay-message"
@@ -129,49 +79,6 @@ exports[`azureSubscriptionsView snapshot matches snapshot when no error present 
     <AzureSubscriptionsMenuBar
       onRefreshClick={[Function]}
       refreshDisabled={false}
-      t={
-        [MockFunction] {
-          "calls": Array [
-            Array [
-              "azureSubscriptions.header.description",
-            ],
-            Array [
-              "azureSubscriptions.subscriptionsTable.id",
-            ],
-            Array [
-              "azureSubscriptions.subscriptionsTable.displayName",
-            ],
-            Array [
-              "azureSubscriptions.subscriptionsTable.state",
-            ],
-            Array [
-              "azureSubscriptions.subscriptionsTable.authorizationSource",
-            ],
-          ],
-          "results": Array [
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-          ],
-        }
-      }
     />
   </div>
   <div
